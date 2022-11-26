@@ -14,7 +14,7 @@ function App() {
     <div className="bg-light" style={style}>
       <div className="container-sm">
         <p>Тест</p>
-        <p>{initDataUnsafe.toString()}</p>
+        <p>{JSON.stringify(initDataUnsafe)}</p>
       </div>
     </div>
 
