@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useRef } from "react"
 import { useQuery } from '@tanstack/react-query'
 
-export default function RoomPage(): JSX.Element {
+export default function RoomPage(props: any): JSX.Element {
 
+    const reqBody = {
+        userId: props.userid,
+        userName: props.username,
+        room: props.room,
+        role: props.role,
+    }
     const { isLoading, error, data } = useQuery({
         queryKey: ['myState'],
         queryFn: () =>
-            fetch('https://zeskord.ru/api/tick', { method: "POST" }).then(res =>
+            fetch('https://zeskord.ru/api/tick', { method: "POST", body: JSON.stringify(reqBody) }).then(res =>
                 res.json()
             )
     })

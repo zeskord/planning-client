@@ -14,7 +14,7 @@ function App() {
   }
   const webApp = Telegram.WebApp
   const initDataUnsafe = webApp.initDataUnsafe
-  const webAppUser = initDataUnsafe.user
+  const webAppUser = initDataUnsafe.user as any
 
   const [userState, setUserState] = useState({
     authorized: false,
@@ -31,7 +31,7 @@ function App() {
           {/* <p>Тест</p>
           <p>{JSON.stringify(initDataUnsafe, undefined, "    ")}</p>
           <p>{webAppUser?.photo_url}</p> */}
-          <RoomPage />
+          <RoomPage userid={webAppUser.id} username = {webAppUser.first_name} room = {0} role = {0}/>
         </div>
       </div>
     </QueryClientProvider>
