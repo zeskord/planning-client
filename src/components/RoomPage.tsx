@@ -1,10 +1,22 @@
 import React, { useState, useEffect, useRef } from "react"
+import { useQuery } from '@tanstack/react-query'
 
-function RoomPage() {
+export default function RoomPage(): JSX.Element {
+
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['myState'],
+        queryFn: () =>
+            fetch('https://zeskord.ru/api/tick', { method: "POST" }).then(res =>
+                res.json()
+            )
+    })
+
+    // if (error) return error
 
     return (
         <div className="container-sm">
-            <div className="input-group input-group-lg my-2">
+            <p>{data.toString()}</p>
+            {/* <div className="input-group input-group-lg my-2">
                 <span className="input-group-text">Оценка</span>
                 <input
                     type="number"
@@ -22,9 +34,7 @@ function RoomPage() {
                 >
                     . . .
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }
-
-export default RoomPage;

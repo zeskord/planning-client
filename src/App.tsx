@@ -1,7 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import RoomPage from './components/RoomPage'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { UserRole } from './types';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+const queryClient = new QueryClient()
 
 function App() {
 
@@ -14,19 +17,24 @@ function App() {
   const webAppUser = initDataUnsafe.user
 
   const [userState, setUserState] = useState({
-    webAppUser: webAppUser,
-    isSpectator: false
+    authorized: false,
+    userId: webAppUser?.id,
+    role: UserRole.Estimator,
   })
 
+
+
   return (
-    <div className="bg-light" style={style}>
-      <div className="container-sm">
-        <p>Тест</p>
-        <p>{JSON.stringify(initDataUnsafe, undefined, "    ")}</p>
-        <p>{webAppUser?.photo_url}</p>
-        <RoomPage/>
+    <QueryClientProvider client={queryClient}>
+      <div className="bg-light" style={style}>
+        <div className="container-sm">
+          {/* <p>Тест</p>
+          <p>{JSON.stringify(initDataUnsafe, undefined, "    ")}</p>
+          <p>{webAppUser?.photo_url}</p> */}
+          <RoomPage />
+        </div>
       </div>
-    </div>
+    </QueryClientProvider>
 
   )
 }
