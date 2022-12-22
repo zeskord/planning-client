@@ -12,7 +12,7 @@ export default function RoomPage(props: any): JSX.Element {
     const { isLoading, error, data } = useQuery({
         queryKey: ['myState'],
         queryFn: () =>
-            fetch('https://zeskord.ru/api/tick', { method: "POST", body: JSON.stringify(reqBody) }).then(res =>
+            fetch('/api/tick', { method: "POST", body: JSON.stringify(reqBody) }).then(res =>
                 res.json()
             )
     })
