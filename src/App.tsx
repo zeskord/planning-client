@@ -25,17 +25,17 @@ function App() {
 
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="bg-light" style={style}>
-        <div className="container-sm">
-          <p>Тест</p>
-          <p>{JSON.stringify(initDataUnsafe, undefined, "    ")}</p>
-          {/* <p>{webAppUser?.photo_url}</p> */}
-          {(webAppUser !== undefined)} && <RoomPage userid={webAppUser.id} username = {webAppUser.first_name} room = {0} role = {0}/>
-        </div>
-      </div>
-    </QueryClientProvider>
-
+    // <QueryClientProvider client={queryClient}>
+    //   <div className="bg-light" style={style}>
+    //     <div className="container-sm">
+    //       <p>Тест</p>
+    //       <p>{JSON.stringify(initDataUnsafe, undefined, "    ")}</p>
+    //       {/* <p>{webAppUser?.photo_url}</p> */}
+    //       {(webAppUser !== undefined)} && <RoomPage userid={webAppUser.id} username = {webAppUser.first_name} room = {0} role = {0}/>
+    //     </div>
+    //   </div>
+    // </QueryClientProvider>
+    <p>{JSON.stringify(initDataUnsafe, undefined, "    ")}</p>
   )
 }
 
