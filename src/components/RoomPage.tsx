@@ -9,19 +9,20 @@ export default function RoomPage(props: any): JSX.Element {
         room: props.room,
         role: props.role,
     }
-    const { isLoading, error, data } = useQuery({
-        queryKey: ['myState'],
-        queryFn: () =>
-            fetch('/api/tick', { method: "POST", body: JSON.stringify(reqBody) }).then(res =>
-                res.json()
-            )
-    })
+    // const { isLoading, error, data } = useQuery({
+    //     queryKey: ['myState'],
+    //     queryFn: () =>
+    //         fetch('/api/tick', { method: "POST", body: JSON.stringify(reqBody) }).then(res =>
+    //             res.json()
+    //         )
+    // })
 
     // if (error) return error
 
     return (
         <div className="container-sm">
-            <p>{data.toString()}</p>
+            {/* <p>{data.toString()}</p> */}
+            <p>{reqBody.toString()}</p>
             {/* <div className="input-group input-group-lg my-2">
                 <span className="input-group-text">Оценка</span>
                 <input
