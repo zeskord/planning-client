@@ -9,13 +9,13 @@ export default function RoomPage(props: any): JSX.Element {
         room: props.room,
         role: props.role,
     }
-    // const { isLoading, error, data } = useQuery({
-    //     queryKey: ['myState'],
-    //     queryFn: () =>
-    //         fetch('/api/tick', { method: "POST", body: JSON.stringify(reqBody) }).then(res =>
-    //             res.json()
-    //         )
-    // })
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['myState'],
+        queryFn: () =>
+            fetch('/api/tick', { method: "POST", body: JSON.stringify(reqBody) }).then(res =>
+                res.json()
+            )
+    })
 
     // if (error) return error
 
