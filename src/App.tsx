@@ -36,6 +36,7 @@ function App() {
         <div className="container-sm">
           <p>Тест</p>
           <p>{JSON.stringify(webAppUser, undefined, "    ")}</p>
+          <p>{JSON.stringify(userState, undefined, "    ")}</p>
           {/* <p>{webAppUser?.photo_url}</p> */}
           {/* <RoomPage userid={webAppUser.id} username = {webAppUser.first_name} room = {0} role = {0}/> */}
         </div>
